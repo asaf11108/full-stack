@@ -124,7 +124,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "full-stack:build:production"
+              "browserTarget": "full-stack:build:production",
+              "proxyConfig": "apps/full-stack/proxy.conf.prod.json"
             },
             "development": {
               "browserTarget": "full-stack:build:development"

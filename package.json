@@ -8,7 +8,7 @@
     "build": "nx build",
     "test": "nx test",
     "heroku-postbuild": "nx build api",
-    "start": "node dist/api/main.js"
+    "start": "node dist/apps/api/main.js"
   },
   "private": true,
   "dependencies": {

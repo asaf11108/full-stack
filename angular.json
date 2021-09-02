@@ -128,13 +128,11 @@
               "proxyConfig": "apps/full-stack/proxy.conf.prod.json"
             },
             "development": {
-              "browserTarget": "full-stack:build:development"
+              "browserTarget": "full-stack:build:development",
+              "proxyConfig": "apps/full-stack/proxy.conf.json"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "proxyConfig": "apps/full-stack/proxy.conf.json"
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "https://full-stack-asaf.herokuapp.com/api",
+    "target": "https://full-stack-asaf.herokuapp.com",
     "secure": true
   }
 }

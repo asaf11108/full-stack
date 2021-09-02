@@ -1,6 +1,6 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Query } from '@nestjs/common';
 
-import { Message } from '@full-stack/api-interfaces';
+import { User, Token, GenericResponse } from '@full-stack/api-interfaces';
 
 import { AppService } from './app.service';
 
@@ -8,8 +8,8 @@ import { AppService } from './app.service';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get('hello')
-  getData(): Message {
+  @Get('login')
+  login(@Query() user: User): GenericResponse<Token> {
     return this.appService.getData();
   }
 }

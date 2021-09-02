@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Message } from '@full-stack/api-interfaces';
+import { Token } from '@full-stack/api-interfaces';
 
 @Component({
   selector: 'full-stack-root',
@@ -8,6 +8,11 @@ import { Message } from '@full-stack/api-interfaces';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<Message>('/api/hello');
+  hello$ = this.http.get<Token>('/api/login', {
+    params: {
+      username: 'hfh@fgjhf.com',
+      password: 'hgfghf'
+    }
+  });
   constructor(private http: HttpClient) {}
 }

@@ -3,9 +3,11 @@ export interface User {
   password: string;
 }
 
-export type Token = string;
+export interface Token {
+  token: string;
+};
 
 export interface GenericResponse<T> {
-  success: boolean;
+  success?: boolean;
   message: T;
 }

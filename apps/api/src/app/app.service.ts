@@ -1,12 +1,11 @@
 import { Injectable } from '@nestjs/common';
-import { GenericResponse, Token } from '@full-stack/api-interfaces';
+import { Token } from '@full-stack/api-interfaces';
 
 @Injectable()
 export class AppService {
-  getData(): GenericResponse<Token> {
+  getData(): Token {
     return {
-      success: true,
-      message: 'fh8978hjvuhu6t6hchrtyeyr5'
+      token: 'fh8978hjvuhu6t6hchrtyeyr5'
     };
   }
 }

@@ -1,0 +1,11 @@
+{
+  "root": "dist/apps/full-stack/",
+  "routes": {
+    "/**/*.html": "index.html"
+  },
+  "proxies": {
+    "/api/": {
+      "origin": "https://asaf-nx-api.herokuapp.com/api/"
+    }
+  }
+}

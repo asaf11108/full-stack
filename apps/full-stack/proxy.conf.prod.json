@@ -1,7 +1,0 @@
-{
-  "/api": {
-    "target": "https://full-stack-asaf.herokuapp.com",
-    "secure": true,
-    "changeOrigin": true
-  }
-}

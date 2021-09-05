@@ -89,6 +89,31 @@
         }
       }
     },
+    "fe-main": {
+      "projectType": "library",
+      "root": "libs/fe/main",
+      "sourceRoot": "libs/fe/main/src",
+      "prefix": "full-stack",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fe/main"],
+          "options": {
+            "jestConfig": "libs/fe/main/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/fe/main/src/**/*.ts",
+              "libs/fe/main/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "full-stack": {
       "projectType": "application",
       "root": "apps/full-stack",
@@ -109,7 +134,10 @@
               "apps/full-stack/src/favicon.ico",
               "apps/full-stack/src/assets"
             ],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "apps/full-stack/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/full-stack/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {

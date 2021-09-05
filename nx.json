@@ -33,9 +33,6 @@
     "api-interfaces": {
       "tags": []
     },
-    "auth": {
-      "tags": []
-    },
     "fe-auth": {
       "tags": []
     },

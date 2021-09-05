@@ -36,6 +36,9 @@
     "auth": {
       "tags": []
     },
+    "fe-auth": {
+      "tags": []
+    },
     "fe-main": {
       "tags": []
     },

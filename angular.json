@@ -89,6 +89,31 @@
         }
       }
     },
+    "fe-auth": {
+      "projectType": "library",
+      "root": "libs/fe/auth",
+      "sourceRoot": "libs/fe/auth/src",
+      "prefix": "full-stack",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fe/auth"],
+          "options": {
+            "jestConfig": "libs/fe/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/fe/auth/src/**/*.ts",
+              "libs/fe/auth/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "fe-main": {
       "projectType": "library",
       "root": "libs/fe/main",

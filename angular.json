@@ -109,7 +109,7 @@
               "apps/full-stack/src/favicon.ico",
               "apps/full-stack/src/assets"
             ],
-            "styles": ["apps/full-stack/src/styles.scss"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/indigo-pink.css", "apps/full-stack/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -213,6 +213,7 @@
     }
   },
   "cli": {
+    "analytics": false,
     "defaultCollection": "@nrwl/angular",
     "packageManager": "npm"
   },

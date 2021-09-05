@@ -1,6 +1,10 @@
-<button
-  *ngIf="(auth.isAuthenticated$ | async) === false"
-  (click)="loginWithRedirect()"
->
+<h1>Welcome to full-stack!</h1>
+<img
+  width="450"
+  src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
+  alt="Nx - Smart, Extensible Build Framework"
+/>
+
+<button class="butt-login"  mat-raised-button color="primary" (click)="loginWithRedirect()">
   Log in
 </button>

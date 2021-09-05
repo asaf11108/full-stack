@@ -33,6 +33,9 @@
     "api-interfaces": {
       "tags": []
     },
+    "auth": {
+      "tags": []
+    },
     "full-stack": {
       "tags": []
     },

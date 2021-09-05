@@ -9,7 +9,7 @@ import { AuthService } from '@auth0/auth0-angular';
 })
 export class AuthComponent {
 
-  constructor(public auth: AuthService) {}
+  constructor(private auth: AuthService) {}
 
   loginWithRedirect(): void {
     this.auth.loginWithRedirect();

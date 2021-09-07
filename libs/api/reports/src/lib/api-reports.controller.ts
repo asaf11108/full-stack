@@ -1,4 +1,10 @@
-import { Controller } from '@nestjs/common';
+import { Token } from '@full-stack/interfaces';
+import { Controller, Get } from '@nestjs/common';
 
-@Controller('api-reports')
-export class ApiReportsController {}
+@Controller()
+export class ApiReportsController {
+  @Get('allData')
+  allData(): Token {
+    return { token: 'fgthr' };
+  }
+}

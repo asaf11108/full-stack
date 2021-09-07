@@ -1,3 +1,4 @@
+import { environment } from './../../../../../../apps/fe/src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
@@ -11,6 +12,8 @@ export class MainComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get('');
+    this.http
+      .get(environment.apiUrl + 'reports/get/allData')
+      .subscribe(console.log);
   }
 }

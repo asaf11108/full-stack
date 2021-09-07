@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  hello$ = this.http.get<any>(environment.apiUrl + 'api/login', {
+  hello$ = this.http.get<any>(environment.apiUrl + 'login', {
     params: {
       username: 'hfh@fgjhf.com',
       password: 'hgfghf'

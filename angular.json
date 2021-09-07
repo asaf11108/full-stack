@@ -64,6 +64,27 @@
         }
       }
     },
+    "be-reports": {
+      "root": "libs/be/reports",
+      "sourceRoot": "libs/be/reports/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/be/reports/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/be/reports"],
+          "options": {
+            "jestConfig": "libs/be/reports/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "fe": {
       "projectType": "application",
       "root": "apps/fe",

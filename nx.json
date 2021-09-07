@@ -33,6 +33,9 @@
     "api-interfaces": {
       "tags": []
     },
+    "be-reports": {
+      "tags": ["be", "reports"]
+    },
     "fe": {
       "tags": ["fe"]
     },
@@ -47,7 +50,7 @@
       "tags": []
     },
     "fe-ui": {
-      "tags": ["fe ui"]
+      "tags": ["fe", "ui"]
     }
   }
 }

@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@full-stack/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@full-stack/be/reports": ["libs/be/reports/src/index.ts"],
       "@full-stack/fe/auth": ["libs/fe/auth/src/index.ts"],
       "@full-stack/fe/main": ["libs/fe/main/src/index.ts"],
       "@full-stack/fe/ui": ["libs/fe/ui/src/index.ts"]

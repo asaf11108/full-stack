@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  redirectUri: 'http://localhost:4200/'
+  feUrl: 'http://localhost:4200/',
+  apiUrl: 'http://localhost:3333'
 };
 
 /*

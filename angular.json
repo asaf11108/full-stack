@@ -130,10 +130,7 @@
               "browserTarget": "fe:build:development"
             }
           },
-          "defaultConfiguration": "development",
-          "options": {
-            "proxyConfig": "apps/fe/proxy.conf.json"
-          }
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

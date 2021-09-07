@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  redirectUri: 'https://asaf-nx-fe.herokuapp.com/'
+  feUrl: 'https://asaf-nx-fe.herokuapp.com/',
+  apiUrl: 'https://asaf-nx-api.herokuapp.com/'
 };

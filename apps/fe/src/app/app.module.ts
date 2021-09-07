@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthModule.forRoot({
       domain: 'dev-vftj-8hu.us.auth0.com',
       clientId: 'kD6iPHFeWwxbjAUUxwY1U2vzS19kYDyd',
-      redirectUri: environment.redirectUri,
+      redirectUri: environment.feUrl,
       errorPath: '/login'
     }),
     BrowserAnimationsModule,

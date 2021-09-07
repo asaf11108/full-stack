@@ -10,7 +10,7 @@
     "start:be": "nx serve api",
     "start": "npm-run-all --parallel start:fe start:be",
     "test": "nx test",
-    "heroku-postbuild": "nx build $PROJECT_NAME --prod"
+    "heroku-postbuild": "nx build $PROJECT_NAME"
   },
   "private": true,
   "dependencies": {

@@ -231,6 +231,31 @@
           }
         }
       }
+    },
+    "fe-ui": {
+      "projectType": "library",
+      "root": "libs/fe/ui",
+      "sourceRoot": "libs/fe/ui/src",
+      "prefix": "fe",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fe/ui"],
+          "options": {
+            "jestConfig": "libs/fe/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/fe/ui/src/**/*.ts",
+              "libs/fe/ui/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {

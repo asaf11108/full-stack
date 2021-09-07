@@ -45,6 +45,9 @@
     },
     "fe-main": {
       "tags": []
+    },
+    "fe-ui": {
+      "tags": ["fe ui"]
     }
   }
 }

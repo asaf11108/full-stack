@@ -89,7 +89,7 @@
       "projectType": "application",
       "root": "apps/fe",
       "sourceRoot": "apps/fe/src",
-      "prefix": "full-stack",
+      "prefix": "fe",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -179,7 +179,7 @@
       "projectType": "library",
       "root": "libs/fe/auth",
       "sourceRoot": "libs/fe/auth/src",
-      "prefix": "full-stack",
+      "prefix": "fe",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -229,7 +229,7 @@
       "projectType": "library",
       "root": "libs/fe/main",
       "sourceRoot": "libs/fe/main/src",
-      "prefix": "full-stack",
+      "prefix": "fe",
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
@@ -308,5 +308,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "full-stack"
+  "defaultProject": "fe"
 }

@@ -1,10 +1,6 @@
-import { Website } from '@full-stack/interfaces';
 import { environment } from './../../../../../../apps/fe/src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
-import { from, Observable } from 'rxjs';
-import * as csv from 'csvtojson';
 
 @Component({
   selector: 'fe-main',
@@ -17,9 +13,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.http
-      .get(environment.apiUrl + 'reports/get/allData', {responseType: 'text'}).pipe(
-        switchMap<string, Observable<Website[]>>(res => from(csv({ headers: ['websiteId', 'date', 'widgetId', 'clicks', 'impressions', 'revenue'] }).fromString(res)))
-      )
+      .get(environment.apiUrl + 'reports/get/allData')
       .subscribe(console.log);
   }
 }

@@ -51,35 +51,35 @@
         }
       }
     },
-    "api-interfaces": {
-      "root": "libs/api-interfaces",
-      "sourceRoot": "libs/api-interfaces/src",
+    "interfaces": {
+      "root": "libs/interfaces",
+      "sourceRoot": "libs/interfaces/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/api-interfaces/**/*.ts"]
+            "lintFilePatterns": ["libs/interfaces/**/*.ts"]
           }
         }
       }
     },
-    "be-reports": {
-      "root": "libs/be/reports",
-      "sourceRoot": "libs/be/reports/src",
+    "api-reports": {
+      "root": "libs/api/reports",
+      "sourceRoot": "libs/api/reports/src",
       "projectType": "library",
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/be/reports/**/*.ts"]
+            "lintFilePatterns": ["libs/api/reports/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/be/reports"],
+          "outputs": ["coverage/libs/api/reports"],
           "options": {
-            "jestConfig": "libs/be/reports/jest.config.js",
+            "jestConfig": "libs/api/reports/jest.config.js",
             "passWithNoTests": true
           }
         }

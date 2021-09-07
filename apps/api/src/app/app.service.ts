@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Token } from '@full-stack/api-interfaces';
+import { Token } from '@full-stack/interfaces';
 
 @Injectable()
 export class AppService {

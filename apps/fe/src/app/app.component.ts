@@ -1,7 +1,7 @@
 import { environment } from './../environments/environment';
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Token } from '@full-stack/api-interfaces';
+import { Token } from '@full-stack/interfaces';
 
 @Component({
   selector: 'full-stack-root',

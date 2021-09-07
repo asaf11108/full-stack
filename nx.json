@@ -28,26 +28,26 @@
   },
   "projects": {
     "api": {
+      "tags": ["api"]
+    },
+    "interfaces": {
       "tags": []
     },
-    "api-interfaces": {
-      "tags": []
-    },
-    "be-reports": {
-      "tags": ["be", "reports"]
+    "api-reports": {
+      "tags": ["api", "reports"]
     },
     "fe": {
       "tags": ["fe"]
     },
     "fe-auth": {
-      "tags": []
+      "tags": ["fe", "auth"]
     },
     "fe-e2e": {
       "tags": [],
       "implicitDependencies": ["fe"]
     },
     "fe-main": {
-      "tags": []
+      "tags": ["fe", "main"]
     },
     "fe-ui": {
       "tags": ["fe", "ui"]

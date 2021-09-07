@@ -1,5 +1,5 @@
 import { Controller, Get, Query, Res } from '@nestjs/common';
-import { User, Token } from '@full-stack/api-interfaces';
+import { User, Token } from '@full-stack/interfaces';
 import { AppService } from './app.service';
 
 @Controller()

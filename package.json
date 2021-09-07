@@ -7,8 +7,8 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "build": "nx build",
     "start:fe": "nx serve fe",
-    "start:be": "nx serve api",
-    "start": "npm-run-all --parallel start:fe start:be",
+    "start:api": "nx serve api",
+    "start": "npm-run-all --parallel start:fe start:api",
     "test": "nx test",
     "heroku-postbuild": "nx build $PROJECT_NAME"
   },

@@ -1,7 +1,7 @@
 import { Token } from '@full-stack/interfaces';
 import { Controller, Get } from '@nestjs/common';
 
-@Controller('get')
+@Controller(['reports/get'])
 export class ApiGetReportsController {
   @Get('allData')
   allData(): Token {

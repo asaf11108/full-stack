@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { AppRoutingModule } from './app-routing.module';
+import { ApiReportsModule } from '@full-stack/api/reports';
 
 @Module({
-  imports: [AppRoutingModule],
+  imports: [ApiReportsModule],
   controllers: [AppController],
   providers: [AppService],
 })

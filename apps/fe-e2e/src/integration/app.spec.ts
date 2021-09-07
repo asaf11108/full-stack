@@ -1,6 +1,6 @@
 import { getGreeting } from '../support/app.po';
 
-describe('full-stack', () => {
+describe('fe', () => {
   beforeEach(() => cy.visit('/'));
 
   it('should display welcome message', () => {
@@ -8,6 +8,6 @@ describe('full-stack', () => {
     cy.login('my-email@something.com', 'myPassword');
 
     // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to full-stack!');
+    getGreeting().contains('Welcome to fe!');
   });
 });

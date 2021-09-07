@@ -33,18 +33,18 @@
     "api-interfaces": {
       "tags": []
     },
+    "fe": {
+      "tags": ["fe"]
+    },
     "fe-auth": {
       "tags": []
     },
+    "fe-e2e": {
+      "tags": [],
+      "implicitDependencies": ["fe"]
+    },
     "fe-main": {
       "tags": []
-    },
-    "full-stack": {
-      "tags": []
-    },
-    "full-stack-e2e": {
-      "tags": [],
-      "implicitDependencies": ["full-stack"]
     }
   }
 }

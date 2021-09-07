@@ -64,6 +64,99 @@
         }
       }
     },
+    "fe": {
+      "projectType": "application",
+      "root": "apps/fe",
+      "sourceRoot": "apps/fe/src",
+      "prefix": "full-stack",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/apps/fe",
+            "index": "apps/fe/src/index.html",
+            "main": "apps/fe/src/main.ts",
+            "polyfills": "apps/fe/src/polyfills.ts",
+            "tsConfig": "apps/fe/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": ["apps/fe/src/favicon.ico", "apps/fe/src/assets"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/fe/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "apps/fe/src/environments/environment.ts",
+                  "with": "apps/fe/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "fe:build:production"
+            },
+            "development": {
+              "browserTarget": "fe:build:development"
+            }
+          },
+          "defaultConfiguration": "development",
+          "options": {
+            "proxyConfig": "apps/fe/proxy.conf.json"
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fe:build"
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/fe/src/**/*.ts", "apps/fe/src/**/*.html"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/apps/fe"],
+          "options": {
+            "jestConfig": "apps/fe/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
     "fe-auth": {
       "projectType": "library",
       "root": "libs/fe/auth",
@@ -89,6 +182,31 @@
         }
       }
     },
+    "fe-e2e": {
+      "root": "apps/fe-e2e",
+      "sourceRoot": "apps/fe-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/fe-e2e/cypress.json",
+            "devServerTarget": "fe:serve:development"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "fe:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["apps/fe-e2e/**/*.{js,ts}"]
+          }
+        }
+      }
+    },
     "fe-main": {
       "projectType": "library",
       "root": "libs/fe/main",
@@ -110,131 +228,6 @@
               "libs/fe/main/src/**/*.ts",
               "libs/fe/main/src/**/*.html"
             ]
-          }
-        }
-      }
-    },
-    "full-stack": {
-      "projectType": "application",
-      "root": "apps/full-stack",
-      "sourceRoot": "apps/full-stack/src",
-      "prefix": "full-stack",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:browser",
-          "outputs": ["{options.outputPath}"],
-          "options": {
-            "outputPath": "dist/apps/full-stack",
-            "index": "apps/full-stack/src/index.html",
-            "main": "apps/full-stack/src/main.ts",
-            "polyfills": "apps/full-stack/src/polyfills.ts",
-            "tsConfig": "apps/full-stack/tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
-            "assets": [
-              "apps/full-stack/src/favicon.ico",
-              "apps/full-stack/src/assets"
-            ],
-            "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "apps/full-stack/src/styles.scss"
-            ],
-            "scripts": []
-          },
-          "configurations": {
-            "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "apps/full-stack/src/environments/environment.ts",
-                  "with": "apps/full-stack/src/environments/environment.prod.ts"
-                }
-              ],
-              "outputHashing": "all"
-            },
-            "development": {
-              "buildOptimizer": false,
-              "optimization": false,
-              "vendorChunk": true,
-              "extractLicenses": false,
-              "sourceMap": true,
-              "namedChunks": true
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
-          "configurations": {
-            "production": {
-              "browserTarget": "full-stack:build:production"
-            },
-            "development": {
-              "browserTarget": "full-stack:build:development"
-            }
-          },
-          "defaultConfiguration": "development",
-          "options": {
-            "proxyConfig": "apps/full-stack/proxy.conf.json"
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "full-stack:build"
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/full-stack/src/**/*.ts",
-              "apps/full-stack/src/**/*.html"
-            ]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/full-stack"],
-          "options": {
-            "jestConfig": "apps/full-stack/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      }
-    },
-    "full-stack-e2e": {
-      "root": "apps/full-stack-e2e",
-      "sourceRoot": "apps/full-stack-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/full-stack-e2e/cypress.json",
-            "devServerTarget": "full-stack:serve:development",
-            "tsConfig": "apps/full-stack-e2e/tsconfig.json"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "full-stack:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/full-stack-e2e/**/*.{js,ts}"]
           }
         }
       }

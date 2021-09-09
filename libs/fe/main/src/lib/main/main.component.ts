@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { TABLE_CONFIG } from './main.config';
 import { environment } from '@full-stack/fe/environment';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +15,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class MainComponent implements OnInit {
   form = new FormGroup({
-    query: new FormControl()
+    query: new FormControl('')
   });
   controls = {
     query: this.form.get('query') as FormControl
@@ -23,12 +24,9 @@ export class MainComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   columns: TableColumn[] = TABLE_CONFIG;
-  websites: Website[];
+  websites$: Observable<Website[]>;
 
   ngOnInit(): void {
-    this.http.get<Website[]>(environment.apiUrl + 'reports/get/allData').subscribe(res => {
-      this.websites = res;
-    });
-
+    this.websites$ = this.http.get<Website[]>(environment.apiUrl + 'reports/get/allData');
   }
 }

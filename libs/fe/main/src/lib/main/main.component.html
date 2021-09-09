@@ -5,6 +5,6 @@
         </mat-form-field>
     </div>
 
-    <fe-table [columns]="columns" [data]="websites">
+    <fe-table [columns]="columns" [data]="websites$ | async">
     </fe-table>
 </form>

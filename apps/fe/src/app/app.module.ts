@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       domain: 'dev-vftj-8hu.us.auth0.com',
       clientId: 'kD6iPHFeWwxbjAUUxwY1U2vzS19kYDyd',
       redirectUri: environment.feUrl,
+      audience: 'https://asaf-nx-api.herokuapp.com/',
+      issuer: 'https://dev-vftj-8hu.us.auth0.com/',
       errorPath: '/login'
     }),
     BrowserAnimationsModule,

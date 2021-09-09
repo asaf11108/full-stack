@@ -35,7 +35,7 @@ export class MainComponent implements OnInit {
       startWith(this.controls.date.value),
       switchMap((date: Date) =>
         !!date
-          ? this.http.get<Website[]>(url + date.getTime())
+          ? this.http.get<Website[]>(url + new Date(Date.UTC(date.getFullYear(),date.getMonth(), date.getDate())).getTime())
           : this.http.get<Website[]>(url + 'allData')
       )
     );

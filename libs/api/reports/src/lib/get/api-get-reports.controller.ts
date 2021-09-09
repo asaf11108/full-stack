@@ -1,6 +1,6 @@
-import { map } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { Website } from '@full-stack/interfaces';
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
 import { join } from 'path';
 import { from, Observable } from 'rxjs';
 import * as csv from 'csvtojson';
@@ -22,10 +22,10 @@ export class ApiGetReportsController {
         return this.readFile();
     }
 
-    @Get()
-    Data(@Param() date: number): Observable<Website[]> {
+    @Get(':time')
+    data(@Param('time', ParseIntPipe) time: number): Observable<Website[]> {
         return this.readFile().pipe(
-            map(allData => allData.filter(data => new Date(data.date).getTime() === date))
+            map(websites => websites.filter(data => new Date(data.date).getTime() === time))
         );
     }
 

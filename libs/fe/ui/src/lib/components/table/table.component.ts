@@ -1,7 +1,5 @@
-import { tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
 import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef, ViewChild } from '@angular/core';
-import { ColumnMode, DatatableComponent, TableColumn } from '@swimlane/ngx-datatable';
+import { ColumnMode, TableColumn } from '@swimlane/ngx-datatable';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({

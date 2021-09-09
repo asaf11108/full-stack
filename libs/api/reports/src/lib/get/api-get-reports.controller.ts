@@ -1,9 +1,10 @@
 import { map, tap } from 'rxjs/operators';
 import { Website } from '@full-stack/interfaces';
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, UseGuards } from '@nestjs/common';
 import { join } from 'path';
 import { from, Observable } from 'rxjs';
 import * as csv from 'csvtojson';
+import { AuthGuard } from '@nestjs/passport';
 
 @Controller(['reports/get'])
 export class ApiGetReportsController {
@@ -17,11 +18,13 @@ export class ApiGetReportsController {
     ];
     static filePath = join(__dirname, 'assets/all_data.csv');
 
+    @UseGuards(AuthGuard('jwt'))
     @Get('allData')
     allData(): Observable<Website[]> {
         return this.readFile();
     }
 
+    @UseGuards(AuthGuard('jwt'))
     @Get(':time')
     data(@Param('time', ParseIntPipe) time: number): Observable<Website[]> {
         return this.readFile().pipe(

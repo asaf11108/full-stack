@@ -15,4 +15,8 @@ export class AuthComponent {
     this.auth.loginWithRedirect();
   }
 
+  logoutWithRedirect(): void {
+    this.auth.logout();
+  }
+
 }

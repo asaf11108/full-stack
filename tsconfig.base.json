@@ -15,13 +15,16 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@full-stack/interfaces": ["libs/interfaces/src/index.ts"],
-      "@full-stack/api/environment": ["apps/api/src/environments/environment.ts"],
+      "@full-stack/api/auth": ["libs/api/auth/src/index.ts"],
+      "@full-stack/api/environment": [
+        "apps/api/src/environments/environment.ts"
+      ],
       "@full-stack/api/reports": ["libs/api/reports/src/index.ts"],
-      "@full-stack/fe/environment": ["apps/fe/src/environments/environment.ts"],
       "@full-stack/fe/auth": ["libs/fe/auth/src/index.ts"],
+      "@full-stack/fe/environment": ["apps/fe/src/environments/environment.ts"],
       "@full-stack/fe/main": ["libs/fe/main/src/index.ts"],
-      "@full-stack/fe/ui": ["libs/fe/ui/src/index.ts"]
+      "@full-stack/fe/ui": ["libs/fe/ui/src/index.ts"],
+      "@full-stack/interfaces": ["libs/interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

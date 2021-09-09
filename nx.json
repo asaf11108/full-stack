@@ -30,8 +30,8 @@
     "api": {
       "tags": ["api"]
     },
-    "interfaces": {
-      "tags": []
+    "api-auth": {
+      "tags": ["api", "auth"]
     },
     "api-reports": {
       "tags": ["api", "reports"]
@@ -51,6 +51,9 @@
     },
     "fe-ui": {
       "tags": ["fe", "ui"]
+    },
+    "interfaces": {
+      "tags": []
     }
   }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Website } from '@full-stack/interfaces';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { ColumnMode, TableColumn } from '@swimlane/ngx-datatable';
 
 @Component({
   selector: 'fe-table',
@@ -6,7 +8,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TableComponent implements OnInit {
+export class TableComponent<T> implements OnInit {
+  ColumnMode = ColumnMode;
+
+  @Input() columns: TableColumn[] = [];
+  @Input() data: T[] = [];
 
   constructor() { }
 

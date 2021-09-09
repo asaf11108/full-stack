@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgPipesModule } from 'ngx-pipes';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     NgPipesModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatIconModule
   ],
   declarations: [MainComponent],
 })

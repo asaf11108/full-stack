@@ -6,9 +6,10 @@ import { FeMainRoutingModule } from './fe-main-routing.module';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from '@angular/forms';
+import {NgPipesModule} from 'ngx-pipes';
 
 @NgModule({
-  imports: [CommonModule, FeMainRoutingModule, FeUiModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule],
+  imports: [CommonModule, FeMainRoutingModule, FeUiModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, NgPipesModule],
   declarations: [
     MainComponent
   ],

@@ -1,10 +1,11 @@
 <form [formGroup]="form">
     <div>
         <mat-form-field>
-            <input matInput [formControl]="controls.query" autocomplete="off" type="search">
+            <input matInput [formControl]="controls.query" autocomplete="off" type="search" #input>
         </mat-form-field>
+        
     </div>
 
-    <fe-table [columns]="columns" [data]="websites$ | async">
+    <fe-table [columns]="columns" [data]="websites$ | async | filterBy:['websiteId']:input.value">
     </fe-table>
 </form>

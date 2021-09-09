@@ -1,4 +1,10 @@
-<fe-table
-[columns]="columns"
-[data]="websites$ | async">
-</fe-table>
+<form [formGroup]="form">
+    <div>
+        <mat-form-field>
+            <input matInput [formControl]="controls.query" autocomplete="off" type="search">
+        </mat-form-field>
+    </div>
+
+    <fe-table [columns]="columns" [data]="websites">
+    </fe-table>
+</form>

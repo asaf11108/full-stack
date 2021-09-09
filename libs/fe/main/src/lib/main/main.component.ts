@@ -1,4 +1,4 @@
-import { startWith, switchMap, tap } from 'rxjs/operators';
+import { startWith, switchMap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { TABLE_CONFIG } from './main.config';
 import { environment } from '@full-stack/fe/environment';
@@ -34,7 +34,7 @@ export class MainComponent implements OnInit {
     this.websites$ = this.controls.date.valueChanges.pipe(
       startWith(this.controls.date.value),
       switchMap((date: Date) =>
-        !!date
+        date
           ? this.http.get<Website[]>(url + new Date(Date.UTC(date.getFullYear(),date.getMonth(), date.getDate())).getTime())
           : this.http.get<Website[]>(url + 'allData')
       )

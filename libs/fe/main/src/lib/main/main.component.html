@@ -11,6 +11,6 @@
         </mat-form-field>
     </div>
 
-    <fe-table [columns]="columns" [data]="websites$ | async | filterBy:['websiteId']:input.value">
+    <fe-table [columns]="columns" [data]="websites$ | async | filterBy:['websiteId']:input.value" [loading]="loading$ | async">
     </fe-table>
 </form>

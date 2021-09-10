@@ -1,5 +1,5 @@
-import { startWith, switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { catchError, startWith, switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { TABLE_CONFIG } from './main.config';
 import { environment } from '@full-stack/fe/environment';
 import { HttpClient } from '@angular/common/http';
@@ -26,6 +26,7 @@ export class MainComponent implements OnInit {
 
   columns: TableColumn[] = TABLE_CONFIG;
   websites$: Observable<Website[]>;
+  loading$ = new BehaviorSubject<boolean>(true);
 
   constructor(private http: HttpClient) {}
 
@@ -33,11 +34,17 @@ export class MainComponent implements OnInit {
     const url = environment.apiUrl + 'reports/get/';
     this.websites$ = this.controls.date.valueChanges.pipe(
       startWith(this.controls.date.value),
+      tap(() => this.loading$.next(true)),
       switchMap((date: Date) =>
         date
           ? this.http.get<Website[]>(url + new Date(Date.UTC(date.getFullYear(),date.getMonth(), date.getDate())).getTime())
           : this.http.get<Website[]>(url + 'allData')
-      )
+      ),
+      tap(() => this.loading$.next(false)),
+      catchError(err => {
+        this.loading$.next(false);
+        return throwError(() => err);
+      })
     );
   }
 }

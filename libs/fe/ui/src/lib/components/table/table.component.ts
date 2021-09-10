@@ -19,6 +19,7 @@ export class TableComponent<T> implements OnInit {
 
   @Input() columns: TableColumn[];
   @Input() data: T[] = [];
+  @Input() loading: boolean;
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 

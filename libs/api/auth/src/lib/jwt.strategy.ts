@@ -1,4 +1,4 @@
-import { environment } from '@full-stack/api/environment';
+import { environment } from '@full-stack/api/core';
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';

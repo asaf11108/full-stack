@@ -16,6 +16,10 @@
   "config": {
     "legacy-peer-deps": true
   },
+  "engines": {
+    "node": "14.17.1",
+    "npm": "7.16.0"
+  },
   "dependencies": {
     "@angular/animations": "^12.1.0",
     "@angular/cdk": "^12.2.4",

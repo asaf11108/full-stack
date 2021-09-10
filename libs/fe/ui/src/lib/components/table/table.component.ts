@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation, ChangeDetectorRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation, HostBinding } from '@angular/core';
 import { ColumnMode, TableColumn } from '@swimlane/ngx-datatable';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
@@ -8,9 +8,6 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  host: {
-    class: 'fe-table',
-  }
 })
 export class TableComponent<T> implements OnInit {
   ColumnMode = ColumnMode;
@@ -20,6 +17,11 @@ export class TableComponent<T> implements OnInit {
   @Input() columns: TableColumn[];
   @Input() data: T[] = [];
   @Input() loading: boolean;
+
+  @HostBinding('class')
+  get host(): string {
+    return 'fe-table';
+  }
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 

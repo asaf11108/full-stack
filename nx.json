@@ -42,6 +42,9 @@
     "fe-auth": {
       "tags": ["fe", "auth"]
     },
+    "fe-core": {
+      "tags": ["fe", "core"]
+    },
     "fe-e2e": {
       "tags": [],
       "implicitDependencies": ["fe"]

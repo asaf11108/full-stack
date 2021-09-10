@@ -208,6 +208,31 @@
         }
       }
     },
+    "fe-core": {
+      "projectType": "library",
+      "root": "libs/fe/core",
+      "sourceRoot": "libs/fe/core/src",
+      "prefix": "fe",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/fe/core"],
+          "options": {
+            "jestConfig": "libs/fe/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/fe/core/src/**/*.ts",
+              "libs/fe/core/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "fe-e2e": {
       "root": "apps/fe-e2e",
       "sourceRoot": "apps/fe-e2e/src",

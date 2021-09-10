@@ -2,6 +2,7 @@ import { TableColumn } from '@swimlane/ngx-datatable';
 
 export enum ColumnType {
     Text,
+    Number,
     Date
 }
 

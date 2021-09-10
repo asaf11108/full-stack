@@ -17,9 +17,13 @@ export class TableComponent<T> implements OnInit {
   view: [number, number];
 
   @ViewChild('dateTmpl', { static: true }) dateTmpl: TemplateRef<any>;
+  @ViewChild('numberTmpl', { static: true }) numberTmpl: TemplateRef<any>;
   @OnChange<ExpandedTableColumn[]>(function(columns) {
     columns.forEach(col => {
       switch (col.columnType) {
+        case ColumnType.Number:
+          col.cellTemplate = this.numberTmpl;
+          break;
         case ColumnType.Date:
           col.cellTemplate = this.dateTmpl;
           break;

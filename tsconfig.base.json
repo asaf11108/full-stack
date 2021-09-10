@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@full-stack/api/auth": ["libs/api/auth/src/index.ts"],
+      "@full-stack/api/core": ["libs/api/core/src/index.ts"],
       "@full-stack/api/environment": [
         "apps/api/src/environments/environment.ts"
       ],

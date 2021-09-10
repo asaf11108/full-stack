@@ -33,6 +33,9 @@
     "api-auth": {
       "tags": ["api", "auth"]
     },
+    "api-core": {
+      "tags": ["api", "core"]
+    },
     "api-reports": {
       "tags": ["api", "reports"]
     },

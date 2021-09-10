@@ -4,7 +4,6 @@ import { TABLE_CONFIG } from './main.config';
 import { environment } from '@full-stack/fe/core';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { TableColumn } from '@swimlane/ngx-datatable';
 import { Website } from '@full-stack/interfaces';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -24,7 +23,7 @@ export class MainComponent implements OnInit {
     date: this.form.get('date') as FormControl,
   };
 
-  columns: TableColumn[] = TABLE_CONFIG;
+  columns = TABLE_CONFIG;
   websites$: Observable<Website[]>;
   loading$ = new BehaviorSubject<boolean>(true);
 

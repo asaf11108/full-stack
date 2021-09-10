@@ -1,6 +1,8 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation, HostBinding } from '@angular/core';
-import { ColumnMode, TableColumn } from '@swimlane/ngx-datatable';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation, HostBinding, ViewChild, TemplateRef } from '@angular/core';
+import { ColumnMode } from '@swimlane/ngx-datatable';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { ColumnType, ExpandedTableColumn } from './table.model';
+import { OnChange } from "property-watch-decorator";
 
 @Component({
   selector: 'fe-table',
@@ -14,7 +16,17 @@ export class TableComponent<T> implements OnInit {
   
   view: [number, number];
 
-  @Input() columns: TableColumn[];
+  @ViewChild('dateTmpl', { static: true }) dateTmpl: TemplateRef<any>;
+  @OnChange<ExpandedTableColumn[]>(function(columns) {
+    columns.forEach(col => {
+      switch (col.columnType) {
+        case ColumnType.Date:
+          col.cellTemplate = this.dateTmpl;
+          break;
+      }
+    })
+  })
+  @Input() columns: ExpandedTableColumn[];
   @Input() data: T[] = [];
   @Input() loading: boolean;
 

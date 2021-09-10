@@ -23,9 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       httpInterceptor: {
         allowedList: [
           {
-            uri: 'http://localhost:3333/api/*',
+            uri: `${environment.apiUrl}*`,
             tokenOptions: {
-              audience: 'https://asaf-nx-api.herokuapp.com/',
+              audience: environment.audience,
               scope: 'read:current_user'
             }
           }

@@ -5,7 +5,7 @@ import { Controller, Get, Param, ParseIntPipe, UseGuards } from '@nestjs/common'
 import { Observable } from 'rxjs';
 import { AuthGuard } from '@nestjs/passport';
 
-@Controller(['reports/get'])
+@Controller('get')
 export class ApiGetReportsController {
 
     constructor(private apiReportsService: ApiReportsService) {}

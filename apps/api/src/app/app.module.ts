@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { ApiReportsModule } from '@full-stack/api/reports';
+import { AppRoutingModule } from './app-routing.module';
 
 @Module({
-  imports: [ApiReportsModule],
+  imports: [AppRoutingModule],
 })
 export class AppModule {}

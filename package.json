@@ -14,7 +14,7 @@
   },
   "private": true,
   "config": {
-    "legacy-peer-deps": false
+    "legacy-peer-deps": true
   },
   "dependencies": {
     "@angular/animations": "^12.1.0",

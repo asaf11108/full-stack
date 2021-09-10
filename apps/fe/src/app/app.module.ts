@@ -18,7 +18,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       domain: 'dev-vftj-8hu.us.auth0.com',
       clientId: 'kD6iPHFeWwxbjAUUxwY1U2vzS19kYDyd',
       redirectUri: environment.feUrl,
-      errorPath: '/login'
+      errorPath: '/login',
+      scope: 'read:current_user',
+      httpInterceptor: {
+        allowedList: [
+          {
+            // Match any request that starts 'https://YOUR_DOMAIN/api/v2/' (note the asterisk)
+            uri: 'http://localhost:3333/api/*',
+            tokenOptions: {
+              // The attached token should target this audience
+              audience: 'https://asaf-nx-api.herokuapp.com/',
+    
+              // The attached token should have these scopes
+              scope: 'read:current_user'
+            }
+          }
+        ]
+      }
     }),
     BrowserAnimationsModule,
   ],

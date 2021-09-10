@@ -1,7 +1,7 @@
 import { catchError, startWith, switchMap, tap } from 'rxjs/operators';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { TABLE_CONFIG } from './main.config';
-import { environment } from '@full-stack/fe/environment';
+import { environment } from '@full-stack/fe/core';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { TableColumn } from '@swimlane/ngx-datatable';

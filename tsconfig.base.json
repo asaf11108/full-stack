@@ -22,7 +22,6 @@
       "@full-stack/api/reports": ["libs/api/reports/src/index.ts"],
       "@full-stack/fe/auth": ["libs/fe/auth/src/index.ts"],
       "@full-stack/fe/core": ["libs/fe/core/src/index.ts"],
-      "@full-stack/fe/environment": ["apps/fe/src/environments/environment.ts"],
       "@full-stack/fe/main": ["libs/fe/main/src/index.ts"],
       "@full-stack/fe/ui": ["libs/fe/ui/src/index.ts"],
       "@full-stack/interfaces": ["libs/interfaces/src/index.ts"]

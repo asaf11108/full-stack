@@ -1,4 +1,14 @@
 .fe-table {
+    .ngx-datatable {
+      max-width: 85vw;
+      max-height: 85vh;
+
+      @media (max-width: 600px) {
+        max-width: 90vw;
+        max-height: 80vh;
+      }
+    }
+
     .ngx-datatable .datatable-body .progress-linear {
         display: block;
         position: relative;

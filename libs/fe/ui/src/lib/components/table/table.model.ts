@@ -6,6 +6,6 @@ export enum ColumnType {
     Date
 }
 
-export interface ExpandedTableColumn extends TableColumn {
-  columnType?: ColumnType;
+export interface ITableColumn extends Omit<TableColumn, 'cellTemplate'> {
+  columnType: ColumnType;
 }

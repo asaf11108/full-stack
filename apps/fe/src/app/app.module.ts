@@ -4,9 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthHttpInterceptor, AuthModule } from '@auth0/auth0-angular';
-import { environment } from '@full-stack/fe/core';
+import { AuthHttpInterceptor } from '@auth0/auth0-angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthModule } from './auth.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,25 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    AuthModule.forRoot({
-      domain: 'dev-vftj-8hu.us.auth0.com',
-      clientId: 'kD6iPHFeWwxbjAUUxwY1U2vzS19kYDyd',
-      redirectUri: environment.feUrl,
-      errorPath: '/login',
-      scope: 'read:current_user',
-      httpInterceptor: {
-        allowedList: [
-          {
-            uri: `${environment.apiUrl}*`,
-            tokenOptions: {
-              audience: environment.audience,
-              scope: 'read:current_user'
-            }
-          }
-        ]
-      }
-    }),
     BrowserAnimationsModule,
+    AuthModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthHttpInterceptor, multi: true },

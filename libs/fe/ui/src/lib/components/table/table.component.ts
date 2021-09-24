@@ -1,8 +1,16 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input, ViewEncapsulation, HostBinding, ViewChild, TemplateRef } from '@angular/core';
-import { ColumnMode } from '@swimlane/ngx-datatable';
+import {
+  Component,
+  OnInit,
+  ChangeDetectionStrategy,
+  Input,
+  ViewEncapsulation,
+  ViewChild,
+  TemplateRef,
+} from '@angular/core';
+import { ColumnMode, TableColumn } from '@swimlane/ngx-datatable';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { ColumnType, ExpandedTableColumn } from './table.model';
-import { OnChange } from "property-watch-decorator";
+import { ColumnType, ITableColumn } from './table.model';
+import { omit } from 'lodash-es';
 
 @Component({
   selector: 'fe-table',
@@ -10,43 +18,47 @@ import { OnChange } from "property-watch-decorator";
   styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  host: {
+    class: 'fe-table',
+  },
 })
 export class TableComponent<T> implements OnInit {
   ColumnMode = ColumnMode;
-  
+
   view: [number, number];
+  columns: TableColumn[] = [];
 
   @ViewChild('dateTmpl', { static: true }) dateTmpl: TemplateRef<any>;
   @ViewChild('numberTmpl', { static: true }) numberTmpl: TemplateRef<any>;
-  @OnChange<ExpandedTableColumn[]>(function(columns) {
-    columns.forEach(col => {
+  @Input('columns') set _columns(columns: ITableColumn[]) {
+    this.columns = columns.map((col) => {
+      let cellTemplate: TemplateRef<any>;
       switch (col.columnType) {
         case ColumnType.Number:
-          col.cellTemplate = this.numberTmpl;
+          cellTemplate = this.numberTmpl;
           break;
         case ColumnType.Date:
-          col.cellTemplate = this.dateTmpl;
+          cellTemplate = this.dateTmpl;
           break;
       }
-    })
-  })
-  @Input() columns: ExpandedTableColumn[];
+      return {
+        ...omit(col, 'columnType'),
+        cellTemplate,
+      };
+    });
+  }
   @Input() data: T[] = [];
   @Input() loading: boolean;
 
-  @HostBinding('class')
-  get host(): string {
-    return 'fe-table';
-  }
-
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
   ngOnInit(): void {
     const COLUMN_WIDTH = 200;
     const WIDTH_OFFSET = 50;
-    this.breakpointObserver.observe(Breakpoints.XSmall).subscribe(obs => {
-      this.view = (obs.matches ? [COLUMN_WIDTH + WIDTH_OFFSET, 500] : [COLUMN_WIDTH * this.columns.length + WIDTH_OFFSET, 700]);
-    })
+    this.breakpointObserver.observe(Breakpoints.XSmall).subscribe((obs) => {
+      this.view = obs.matches
+        ? [COLUMN_WIDTH + WIDTH_OFFSET, 500]
+        : [COLUMN_WIDTH * this.columns.length + WIDTH_OFFSET, 700];
+    });
   }
-
 }

@@ -31,6 +31,7 @@
     "@nestjs/platform-express": "^8.0.0",
     "@nrwl/angular": "12.8.0",
     "@swimlane/ngx-datatable": "^19.0.0",
+    "compression": "^1.7.4",
     "csvtojson": "^2.0.10",
     "jwks-rsa": "^2.0.4",
     "lodash-es": "^4.17.21",

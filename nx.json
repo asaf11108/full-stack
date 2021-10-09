@@ -48,10 +48,6 @@
     "fe-core": {
       "tags": ["fe", "core"]
     },
-    "fe-e2e": {
-      "tags": [],
-      "implicitDependencies": ["fe"]
-    },
     "fe-main": {
       "tags": ["fe", "main"]
     },

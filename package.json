@@ -29,6 +29,7 @@
     "@nestjs/core": "^8.0.0",
     "@nestjs/passport": "^8.0.1",
     "@nestjs/platform-express": "^8.0.0",
+    "@nestjs/swagger": "^5.1.0",
     "@nrwl/angular": "12.8.0",
     "@swimlane/ngx-datatable": "^19.0.0",
     "compression": "^1.7.4",
@@ -42,6 +43,7 @@
     "property-watch-decorator": "^1.2.5",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.0.0",
+    "swagger-ui-express": "^4.1.6",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },

@@ -254,31 +254,6 @@
         }
       }
     },
-    "fe-e2e": {
-      "root": "apps/fe-e2e",
-      "sourceRoot": "apps/fe-e2e/src",
-      "projectType": "application",
-      "architect": {
-        "e2e": {
-          "builder": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/fe-e2e/cypress.json",
-            "devServerTarget": "fe:serve:development"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "fe:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/fe-e2e/**/*.{js,ts}"]
-          }
-        }
-      }
-    },
     "fe-main": {
       "projectType": "library",
       "root": "libs/fe/main",
@@ -364,7 +339,7 @@
       "style": "scss",
       "linter": "eslint",
       "unitTestRunner": "jest",
-      "e2eTestRunner": "cypress"
+      "e2eTestRunner": "none"
     },
     "@nrwl/angular:library": {
       "style": "scss",
